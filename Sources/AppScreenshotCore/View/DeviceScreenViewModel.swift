@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 /// Protocol for providing device screen information for rendering screenshots.
-protocol DeviceScreenViewModel {
+public protocol DeviceScreenViewModel {
     var screenSize: CGSize { get }
     var safeAreaInsets: EdgeInsets { get }
     var horizontalSizeClass: UserInterfaceSizeClass { get }
@@ -19,7 +19,7 @@ protocol DeviceScreenViewModel {
 /// Extension that can not be estimated from Bezel Image
 extension AppScreenshotDevice: DeviceScreenViewModel {
 
-    var screenSize: CGSize {
+    public var screenSize: CGSize {
         switch model {
         case .iPhone17ProMax, .iPhone16ProMax:
             return switch orientation {
@@ -83,7 +83,8 @@ extension AppScreenshotDevice: DeviceScreenViewModel {
             }
         }
     }
-    var safeAreaInsets: EdgeInsets {
+
+    public var safeAreaInsets: EdgeInsets {
         switch model {
         case .iPhone17ProMax, .iPhone16ProMax, .iPhone17Pro, .iPhone16Pro:
             return switch orientation {
@@ -114,7 +115,7 @@ extension AppScreenshotDevice: DeviceScreenViewModel {
         }
     }
 
-    var horizontalSizeClass: UserInterfaceSizeClass {
+    public var horizontalSizeClass: UserInterfaceSizeClass {
         switch model.category {
         case .iPad:
             // iPadは常にregular
@@ -136,7 +137,7 @@ extension AppScreenshotDevice: DeviceScreenViewModel {
         }
     }
 
-    var verticalSizeClass: UserInterfaceSizeClass {
+    public var verticalSizeClass: UserInterfaceSizeClass {
         switch model.category {
         case .iPad:
             // iPadは常にregular

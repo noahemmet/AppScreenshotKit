@@ -50,7 +50,7 @@ public struct DeviceView<Content: View>: View {
 ///
 /// - virtual: Uses a programmatically generated device frame.
 /// - appleResource: Uses Apple's official device frames with the provided image data.
-enum RenderingStrategy {
+public enum RenderingStrategy {
     case virtual
     case appleResource(imageData: Data)
 }

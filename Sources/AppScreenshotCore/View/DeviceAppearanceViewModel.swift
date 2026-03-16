@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 /// Protocol for providing device appearance information for rendering device frames.
-protocol DeviceAppearanceViewModel {
+public protocol DeviceAppearanceViewModel {
     var bezelWidth: CGFloat { get }
     var bezelRadius: CGFloat { get }
     var deviceViewSize: CGSize { get }
@@ -21,22 +21,22 @@ protocol DeviceAppearanceViewModel {
 }
 
 /// ViewModel for Dynamic Island feature.
-struct DynamicIsLandViewModel {
-    let size: CGSize
-    let radius: CGFloat
-    let topPadding: CGFloat
+public struct DynamicIsLandViewModel {
+    public let size: CGSize
+    public let radius: CGFloat
+    public let topPadding: CGFloat
 }
 
 extension AppScreenshotDevice: DeviceAppearanceViewModel {
 
-    var appldeBezelDefinition: AppleDesignResourceBezelDefinition {
+    public var appldeBezelDefinition: AppleDesignResourceBezelDefinition {
         AppleDesignResourceBezelDefinition(
             deviceModel: model,
             orientation: orientation
         )
     }
 
-    var deviceViewSize: CGSize {
+    public var deviceViewSize: CGSize {
         let logicalScreenSize = screenSize
         let imageScreenSize = appldeBezelDefinition.screenRect.size
         let ratio =
@@ -47,7 +47,7 @@ extension AppScreenshotDevice: DeviceAppearanceViewModel {
         return CGSize(width: deviceWidth, height: deviceHeight)
     }
 
-    var deviceColor: Color {
+    public var deviceColor: Color {
         switch color {
         case .black: Color(red: 0x1F / 255, green: 0x20 / 255, blue: 0x20 / 255)
         case .white: Color(red: 0xF9 / 255, green: 0xF6 / 255, blue: 0xEF / 255)
@@ -86,7 +86,7 @@ extension AppScreenshotDevice: DeviceAppearanceViewModel {
 
     // Virtual bezel settings
     // TODO: More configuration required
-    var bezelWidth: CGFloat {
+    public var bezelWidth: CGFloat {
         switch model {
         case .iPhone15, .iPhone15Plus, .iPhone15Pro, .iPhone15ProMax,
             .iPhone16, .iPhone16Plus, .iPhone16Pro, .iPhone16ProMax,
@@ -99,7 +99,7 @@ extension AppScreenshotDevice: DeviceAppearanceViewModel {
         }
     }
 
-    var deviceFrameWidth: CGFloat {
+    public var deviceFrameWidth: CGFloat {
         switch model {
         case .iPhone15, .iPhone15Plus, .iPhone15Pro, .iPhone15ProMax,
             .iPhone16, .iPhone16Plus, .iPhone16Pro, .iPhone16ProMax,
@@ -111,7 +111,7 @@ extension AppScreenshotDevice: DeviceAppearanceViewModel {
         }
     }
 
-    var dynamicIdsand: DynamicIsLandViewModel? {
+    public var dynamicIdsand: DynamicIsLandViewModel? {
         switch model {
         case .iPhone15Pro, .iPhone15ProMax, .iPhone15, .iPhone15Plus,
             .iPhone16, .iPhone16Plus, .iPhone16Pro, .iPhone16ProMax,
@@ -126,7 +126,7 @@ extension AppScreenshotDevice: DeviceAppearanceViewModel {
         }
     }
 
-    var bezelRadius: CGFloat {
+    public var bezelRadius: CGFloat {
         switch model {
         case .iPhone17ProMax, .iPhoneAir, .iPhone16ProMax, .iPhone16Plus,
             .iPhone15ProMax, .iPhone15Plus, .iPhone14Plus, .iPhone14ProMax:

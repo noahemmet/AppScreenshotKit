@@ -9,15 +9,15 @@
 import Foundation
 
 /// Defines bezel image and screen rect information for Apple device models and orientations.
-struct AppleDesignResourceBezelDefinition {
-    let imageSize: CGSize
-    let screenRect: CGRect
+public struct AppleDesignResourceBezelDefinition {
+    public let imageSize: CGSize
+    public let screenRect: CGRect
 
     /// Initializes bezel definition for a given device model and orientation.
     /// - Parameters:
     ///   - deviceModel: The device model (e.g., iPhone16ProMax).
     ///   - orientation: The device orientation (portrait or landscape).
-    init(deviceModel: DeviceModel, orientation: DeviceOrientation) {
+    public init(deviceModel: DeviceModel, orientation: DeviceOrientation) {
         switch deviceModel {
         case .iPhone17ProMax:
             switch orientation {
