@@ -20,4 +20,10 @@ public struct AppScreenshotDevice: Sendable, Hashable, Equatable {
 
     /// The model of the device (iPhone, iPad, etc.)
     public let model: DeviceModel
+
+    public init(orientation: DeviceOrientation, color: DeviceColor, model: DeviceModel) {
+        self.orientation = orientation
+        self.color = color
+        self.model = model
+    }
 }
